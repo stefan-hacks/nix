@@ -41,7 +41,7 @@
       );
 
       devShells = forAllSystems (system: {
-        default = nixppkgsFor.${system}.mkShell {
+        default = nixpkgsFor.${system}.mkShell {
           packages = with nixpkgsFor.${system}; [
             hello
             git
