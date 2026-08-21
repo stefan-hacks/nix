@@ -54,6 +54,6 @@
         };
       });
 
-      formatter = forAllSystems (systems: nixpkgsFor.${system}.nixpkgs-fmt);
+      formatter = forAllSystems (system: nixpkgsFor.${system}.nixpkgs-fmt);
     };
 }
