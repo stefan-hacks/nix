@@ -23,9 +23,22 @@
       );
     in
     {
-      packages = forAllSystems (system: {
-        hello = nixpkgsFor.${system}.hello;
-      });
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        {
+          # hello = nixpkgsFor.${system}.hello;
+          hello = pkgs.hello;
+
+          # your custom expression
+          study-hello = pkgs.runCommand "study-hello" { } ''
+            mkdir -p $out/share
+            echo "Hello from nix!" > $out/share/hello.txt
+          '';
+        }
+      );
 
       devShells = forAllSystems (system: {
         default = nixppkgsFor.${system}.mkShell {
