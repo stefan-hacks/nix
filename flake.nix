@@ -46,10 +46,24 @@
             hello
             git
             vim
+            git-lfs
+            gnumake
+            cmake
+            nixpkgs-fmt
+            statix
+            nil
+            python311
+            nodejs_22
           ];
           shellHook = ''
             echo  "Welcome to nix!"
             echo "This shell is defined in flake.nix"
+            echo "Python: $(python3 --version)"
+            echo "Node: $(node -- version)"
+            echo "Nix:  $(nix --version)"
+            echo ""
+            echo "Repo: $(pwd)"
+            echo "Run 'nix fmt' to format all .nix files"
           '';
         };
       });
