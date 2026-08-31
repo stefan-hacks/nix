@@ -1,1 +1,1 @@
-<nixpkgs>
+<nixpkgs/lib>
