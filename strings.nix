@@ -1,23 +1,16 @@
-"hello world"
-"hello" + " " + "world"
-
 let
-  name = "nginx";
+  editor = "nvim";
 in
-  "package name is ${name}"
+{
+  greeting = "hello, Nix user!";
 
-"He said \"Hello\""
+  message = "your editor is " + editor;
 
-''
-  This is line one
-  This is line two
-''
+  configLine = "export EDITOR=${editor}";
 
-let
-  port = 8080;
-in
-''
-  server {
-    listen ${toString port};
-  }
-''
+  script = ''
+    #!/usr/bin/env bash
+    echo "Launching ${editor}..."
+    ${editor} "$@"
+  '';
+}
